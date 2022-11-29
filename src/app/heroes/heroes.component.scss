@@ -1,0 +1,44 @@
+@import "../../styles/_colors";
+
+.heroes {
+  max-width: 500px;
+
+  & > * + * {
+    margin-top: 0.5rem;
+  }
+}
+
+.hero {
+  border: unset;
+  border-radius: 0.25rem;
+  transition: 0.3s background-color;
+  background-color: unset;
+  display: flex;
+  width: 100%;
+
+  &:hover &__name {
+    background-color: $darkGray;
+  }
+
+  &__badge,
+  &__name {
+    padding: 0.25rem 0.5rem;
+  }
+
+  &__badge {
+    background-color: lightblue;
+    border-radius: 0.25rem 0 0 0.25rem;
+  }
+
+  &__name {
+    background-color: $gray;
+    flex-grow: 1;
+    border-radius: 0 0.25rem 0.25rem 0;
+    text-align: left;
+  }
+
+  &_selected &__name {
+    background-color: $black;
+    color: $white;
+  }
+}
