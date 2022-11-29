@@ -36,9 +36,4 @@
     border-radius: 0 0.25rem 0.25rem 0;
     text-align: left;
   }
-
-  &_selected &__name {
-    background-color: $black;
-    color: $white;
-  }
 }
