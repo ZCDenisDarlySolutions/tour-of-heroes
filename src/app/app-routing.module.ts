@@ -6,22 +6,20 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     loadChildren: () =>
-      import('./pages/hero-detail/hero-detail.component').then(
-        (load) => load.HeroDetailComponent
+      import('./pages/hero-detail/hero-detail.module').then(
+        (load) => load.HeroDetailModule
       ),
   },
   {
     path: 'heroes',
     loadChildren: () =>
-      import('./pages/heroes/heroes.component').then(
-        (load) => load.HeroesComponent
-      ),
+      import('./pages/heroes/heroes.module').then((load) => load.HeroesModule),
   },
   {
     path: 'dashboard',
     loadChildren: () =>
-      import('./pages/dashboard/dashboard.component').then(
-        (load) => load.DashboardComponent
+      import('./pages/dashboard/dashboard.module').then(
+        (load) => load.DashboardModule
       ),
   },
 ];
