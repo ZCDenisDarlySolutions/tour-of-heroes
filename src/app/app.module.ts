@@ -1,14 +1,32 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { AppComponent } from 'app.component';
+import { DashboardModule } from 'pages/dashboard/dashboard.module';
+import { HeroDetailModule } from 'pages/hero-detail/hero-detail.module';
+
+import { HeroesModule } from 'pages/heroes/heroes.module';
+import { InMemoryDataService } from 'shared/services/in-memory-data.service';
+
+import { SharedModule } from 'shared/shared.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
-  imports: [BrowserModule, FormsModule],
+  declarations: [AppComponent],
+  imports: [
+    SharedModule,
+    DashboardModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HeroesModule,
+    HeroDetailModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
